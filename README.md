@@ -1,33 +1,67 @@
-# Claude Max Action Test Project
+# 旅行費用精算アプリケーション
 
-This is a test project for integrating Claude Code GitHub Actions.
+友人との旅行で発生した費用を簡単に精算できるWebアプリケーションです。
 
-## Overview
+## 機能
 
-This project demonstrates how to set up and use Claude Code GitHub Actions to:
-- Automate code reviews
-- Respond to GitHub issues and pull requests
-- Implement code changes through AI assistance
+### 必要要件（国内旅行）
+- ✅ 参加者の追加・削除
+- ✅ 支払い費用の記録（支払者、金額、割り勘対象者）
+- ✅ 精算計算（誰が誰にいくら払うか）
 
-## Features
+### 追加要件（海外旅行）
+- ✅ 複数通貨対応
+- ✅ ExchangeRate-API による為替レート自動取得
 
-- **@claude integration**: Mention @claude in comments to trigger AI assistance
-- **Automated workflows**: GitHub Actions configured for seamless integration
-- **Code review automation**: Claude can analyze and suggest improvements
+## 技術スタック
 
-## Usage
+- **Frontend**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: TailwindCSS
+- **Container**: Docker
 
-1. Create an issue or pull request
-2. Mention `@claude` in a comment with your request
-3. Claude will analyze and respond with suggestions or implementations
+## セットアップ
 
-## Setup
+### 開発環境での起動
 
-This project is configured with:
-- GitHub Actions workflow in `.github/workflows/claude.yml`
-- Claude Code Action integration
-- Proper permissions for repository access
+```bash
+# 依存関係のインストール
+npm install
+
+# 開発サーバーの起動
+npm run dev
+```
+
+http://localhost:3000 でアプリケーションにアクセスできます。
+
+### Dockerでの起動
+
+```bash
+# Dockerイメージのビルド
+docker build -t travel-expense-app .
+
+# コンテナの起動
+docker run -p 3000:3000 travel-expense-app
+```
+
+## 使い方
+
+1. **参加者の追加**: 「参加者」セクションで旅行メンバーを追加
+2. **支払い記録**: 「支払い記録」セクションで、誰が何にいくら払ったかを記録
+3. **精算確認**: 「精算」セクションで、誰が誰にいくら払えばよいかを確認
+
+### 海外旅行モード
+
+- 「海外旅行モード」をONにすると、複数通貨での支払いに対応
+- 為替レートは自動取得、または手動入力が可能
+- 基準通貨を変更して、好きな通貨で精算結果を表示
+
+## Claude Code Integration
+
+このプロジェクトはClaude Code GitHub Actionsと統合されています：
+- Issue や PR で `@claude` をメンションすることでAIアシスタンスを受けられます
+- 自動コードレビューや実装支援が可能です
 
 ## Contributing
 
-Feel free to create issues and test the Claude integration by mentioning @claude in your comments! 
+Issue作成時に `@claude` をメンションして、機能追加や改善提案をお寄せください！

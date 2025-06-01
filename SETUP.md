@@ -43,9 +43,15 @@ claude
 #### Claude Max使用の場合
 参考: [Guillaume Railleのガイド](https://grll.bearblog.dev/use-claude-github-actions-with-claude-max/)
 
+
+{"claudeAiOauth":{"accessToken":"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","refreshToken":"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","expiresAt":1748779913361,"scopes":["user:inference","user:profile"]}}
+
+
+
 以下のシークレットを追加：
 ```
 CLAUDE_ACCESS_TOKEN: (Claude Max認証情報から)
+CLAUDE_ACCESS_TOKEN
 CLAUDE_REFRESH_TOKEN: (Claude Max認証情報から)
 CLAUDE_EXPIRES_AT: (Claude Max認証情報から)
 ```
